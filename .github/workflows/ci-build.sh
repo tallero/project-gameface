@@ -51,7 +51,7 @@ _setup_opencv() {
   _pkgname="${_pkg}-${_ver}"
   pkgname="${_prefix}-${_pkgname}"
   _ns="mingw-aur"
-  _commit="13336e133a5a032bfc5a4adc4d27122693ab7559"
+  _commit="1f2ee8877151fc3162476fc442f0c66447705328"
   _url="https://github.com/${_ns}/${pkgname}"
   git clone "${_url}"
   cd "${pkgname}"
