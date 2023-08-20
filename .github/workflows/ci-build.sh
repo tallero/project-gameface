@@ -51,7 +51,8 @@ _setup_opencv() {
   cd "${pkgname}"
   git checkout "${_commit}"
   makepkg-mingw --nocheck
-  pacman -Rdd "${_prefix}-${_pkg}"
+  pacman -Rdd "${_prefix}-${_pkg}" \
+              "${_prefix}-python-${_pkg}"
   pacman -U "${_prefix}"*".pkg.tar"* \
 	    --noconfirm
   cd ".."

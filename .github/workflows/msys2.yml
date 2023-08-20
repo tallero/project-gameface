@@ -13,7 +13,7 @@ jobs:
         with:
           msystem: UCRT64
           update: true
-          install: git patch mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-cython mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-gcc-fortran mingw-w64-ucrt-x86_64-openblas mingw-w64-ucrt-x86_64-opencv mingw-w64-ucrt-x86_64-python-pip mingw-w64-ucrt-x86_64-python-matplotlib mingw-w64-ucrt-x86_64-python-pytest mingw-w64-ucrt-x86_64-python-wheel mingw-w64-ucrt-x86_64-tk
+          install: git patch mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-cython mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-gcc-fortran mingw-w64-ucrt-x86_64-openblas mingw-w64-ucrt-x86_64-opencv mingw-w64-ucrt-x86_64-python-opencv mingw-w64-ucrt-x86_64-python-pip mingw-w64-ucrt-x86_64-python-matplotlib mingw-w64-ucrt-x86_64-python-pytest mingw-w64-ucrt-x86_64-python-wheel mingw-w64-ucrt-x86_64-tk
       - name: CI-Build
         run: |
           echo 'Running in MSYS2!'
