@@ -18,7 +18,7 @@ _prepare() {
 }
 
 _build() {
-  "${_bin}/pip" install -u requirements.txt \
+  "${_bin}/pip" install -r requirements.txt \
 	                --prefer-binary
 }
 
