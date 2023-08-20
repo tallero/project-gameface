@@ -18,12 +18,13 @@ _setup_numpy() {
   _pkgname="${_pkg}-${_ver}"
   pkgname="${_prefix}-${_pkgname}"
   _ns="mingw-aur"
-  _commit="bc5d8d9510c590f2958daa3ae2753cac3709690e"
+  _commit="41859485d2f57bbd1df551220d45b256607977be"
   _url="https://github.com/${_ns}/${pkgname}"
   git clone "${_url}"
   cd "${pkgname}"
   git checkout "${_commit}"
   makepkg-mingw --nocheck
+  pacman -Rdd "${_prefix}-${_pkg}"
   pacman -U "${_prefix}"*"${_pkgname}"*".pkg.tar"* \
 	    --noconfirm
   cd ".."
