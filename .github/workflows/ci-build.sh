@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-echo "test"
+_build() {
+  pyinstaller "build.spec"
+}
+
+_build

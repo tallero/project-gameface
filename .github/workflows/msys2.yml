@@ -2,7 +2,7 @@ name: MSYS2
 on: [push, pull_request]
 
 jobs:
-  msys2-ucrt64:
+  msys2-ucrt64-build:
     runs-on: windows-latest
     defaults:
       run:
@@ -17,4 +17,4 @@ jobs:
       - name: CI-Build
         run: |
           echo 'Running in MSYS2!'
-          ./ci-build.sh
+          ./github/workflows/ci-build.sh
