@@ -9,6 +9,7 @@ _setup_numpy() {
 	_commit \
 	_files=()
 	_pkg \
+	_pwd \
 	_url
   _pkg="python-numpy"
   _github="https://raw.githubusercontent.com"
@@ -28,16 +29,18 @@ _setup_numpy() {
     "0011-dont-die-if-no-fcompiler.patch"
     "0012-clang-no-gcc-workaround.patch")
   mkdir "${HOME}/${_pkg}"
+  _pwd="$(pwd)"
   cd "${HOME}/${_pkg}"
   for _file in "${_files[@]}"; do
     wget "${_url}/${_file}"
   done
   makepkg-mingw
   pacman -U "${_pkg}"*.pkg.tar* --noconfirm
+  cd "${_pwd}"
 }
 
 _build() {
-  "${_bin}/pip" install -r requirements.txt \
+  "${_bin}/pip" install -r "./requirements.txt" \
 	                --prefer-binary
 }
 
