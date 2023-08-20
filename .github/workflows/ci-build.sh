@@ -3,6 +3,11 @@
 _sys="ucrt64"
 _bin="/${_sys}/bin"
 
+_set_prefix() {
+  [[ "${MINGW_PACKAGE_PREFIX}" == ""  ]] && \
+   export MINGW_PACKAGE_PREFIX="mingw-w64-ucrt-x86_64" 
+}
+
 _setup_numpy() {
   local _commit \
         _ns \
@@ -24,8 +29,8 @@ _setup_numpy() {
   cd "${pkgname}"
   git checkout "${_commit}"
   makepkg-mingw --nocheck
-  pacman -Rdd "${_prefix}-${_pkg}"
-  pacman -U "${_prefix}"*"${_pkgname}"*".pkg.tar"* \
+  pacman -Rdd "${MINGW_PACKAGE_PREFIX}-${_pkg}"
+  pacman -U "${MINGW_PACKAGE_PREFIX}-${_pkgname}"*".pkg.tar"* \
 	    --noconfirm
   cd ".."
 }
@@ -51,9 +56,9 @@ _setup_opencv() {
   cd "${pkgname}"
   git checkout "${_commit}"
   makepkg-mingw --nocheck
-  pacman -Rdd "${_prefix}-${_pkg}" \
-              "${_prefix}-python-${_pkg}"
-  pacman -U "${_prefix}"*".pkg.tar"* \
+  pacman -Rdd "${MINGW_PACKAGE_PREFIX}-${_pkg}" \
+              "${MINGW_PACKAGE_PREFIX}-python-${_pkg}"
+  pacman -U "${MINGW_PACKAGE_PREFIX}"*".pkg.tar"* \
 	    --noconfirm
   cd ".."
 }
@@ -67,6 +72,7 @@ _package() {
   "${_bin}/pyinstaller" "build.spec"
 }
 
+_set_prefix
 _setup_numpy
 _setup_opencv
 _build
