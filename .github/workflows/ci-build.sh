@@ -5,6 +5,7 @@ _bin="/${_sys}/bin"
 
 _set_prefix() {
   [[ "${MINGW_PACKAGE_PREFIX}" == ""  ]] && \
+   echo "MINGW_PACKAGE_PREFIX variable was not set" && \
    export MINGW_PACKAGE_PREFIX="mingw-w64-ucrt-x86_64" 
 }
 
