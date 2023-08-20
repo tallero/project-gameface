@@ -35,7 +35,7 @@ _setup_numpy() {
     wget "${_url}/${_file}"
   done
   makepkg-mingw --nocheck
-  pacman -U "${_pkg}"*.pkg.tar* --noconfirm
+  pacman -U "mingw"*"${_pkg}"*.pkg.tar* --noconfirm
   cd "${_pwd}"
 }
 
