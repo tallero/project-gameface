@@ -32,7 +32,7 @@ _setup_numpy() {
   for _file in "${_files[@]}"; do
     wget "${_url}/${_file}"
   done
-  makepkg
+  makepkg-mingw
   pacman -U "${_pkg}"*.pkg.tar* --noconfirm
 }
 
