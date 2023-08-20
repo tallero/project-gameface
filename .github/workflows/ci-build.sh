@@ -2,6 +2,8 @@
 
 _bin="/mingw64/bin"
 
+ls /
+
 _prepare() {
   "${_bin}/pip" install pyinstaller
 }
