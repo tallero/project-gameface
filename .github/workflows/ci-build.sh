@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-_bin="/mingw64/bin"
-
-echo "$(ls /)"
+_sys="mingw64"
+_sys="ucrt64"
+_bin="/${_sys}/bin"
 
 _prepare() {
   "${_bin}/pip" install pyinstaller
@@ -16,6 +16,6 @@ _package() {
   "${_bin}/pyinstaller" "build.spec"
 }
 
-# _prepare
-# _build
-# _package
+_prepare
+_build
+_package
