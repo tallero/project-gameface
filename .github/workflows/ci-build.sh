@@ -2,7 +2,7 @@
 
 _bin="/mingw64/bin"
 
-ls /
+echo "$(ls /)"
 
 _prepare() {
   "${_bin}/pip" install pyinstaller
@@ -16,6 +16,6 @@ _package() {
   "${_bin}/pyinstaller" "build.spec"
 }
 
-_prepare
-_build
-_package
+# _prepare
+# _build
+# _package
