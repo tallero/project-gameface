@@ -30,7 +30,8 @@ _setup_numpy() {
   cd "${pkgname}"
   git checkout "${_commit}"
   makepkg-mingw --nocheck
-  pacman -Rdd "${MINGW_PACKAGE_PREFIX}-${_pkg}"
+  pacman -Rdd "${MINGW_PACKAGE_PREFIX}-${_pkg}" \
+	 --noconfirm
   pacman -U "${MINGW_PACKAGE_PREFIX}-${_pkgname}"*".pkg.tar"* \
 	    --noconfirm
   cd ".."
@@ -58,7 +59,8 @@ _setup_opencv() {
   git checkout "${_commit}"
   makepkg-mingw --nocheck
   pacman -Rdd "${MINGW_PACKAGE_PREFIX}-${_pkg}" \
-              "${MINGW_PACKAGE_PREFIX}-python-${_pkg}"
+              "${MINGW_PACKAGE_PREFIX}-python-${_pkg}" \
+	      --noconfirm
   pacman -U "${MINGW_PACKAGE_PREFIX}"*".pkg.tar"* \
 	    --noconfirm
   cd ".."
