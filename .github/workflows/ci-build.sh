@@ -34,7 +34,7 @@ _setup_numpy() {
   for _file in "${_files[@]}"; do
     wget "${_url}/${_file}"
   done
-  makepkg-mingw
+  makepkg-mingw --nocheck
   pacman -U "${_pkg}"*.pkg.tar* --noconfirm
   cd "${_pwd}"
 }
