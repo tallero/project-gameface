@@ -15,11 +15,12 @@ _build() {
     PyDirectInput==1.0.4
     pywin32==306
     mediapipe==0.9.3.0)
-  "pip" install "${_pkgs[@]}"
+  "${_bin}/pip" install "${_pkgs[@]}" \
+	                --prefer-binary
 }
 
 _package() {
-  "pyinstaller" "build.spec"
+  "${_bin}/pyinstaller" "build.spec"
 }
 
 _build
