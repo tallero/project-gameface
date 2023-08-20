@@ -4,21 +4,28 @@ _sys="ucrt64"
 _bin="/${_sys}/bin"
 
 _setup_numpy() {
-  local _github \
-	_commit \
-	_files=()
+  local _commit \
+        _ns \
 	_pkg \
-	_pwd \
-	_url
+	_pkgname \
+	_prefix \
+	_url \
+	_ver \
+	pkgname
+  _prefix="mingw-w64"
   _pkg="python-numpy"
-  _numpyver="1.22.0"
+  _ver="1.22.0"
+  _pkgname="${_pkg}-${_ver}"
+  pkgname="${_prefix}-${_pkgname}"
   _ns="mingw-aur"
   _commit="bc5d8d9510c590f2958daa3ae2753cac3709690e"
-  git clone "https://github.com/${_ns}/mingw-w64-${_pkg}-${_numpyver}"
-  cd "${_pkg}"
+  _url="https://github.com/${_ns}/${pkgname}"
+  git clone "${_url}"
+  cd "${pkgname}"
   git checkout "${_commit}"
   makepkg-mingw --nocheck
-  pacman -U "mingw"*"${_pkg}"*".pkg.tar"* --noconfirm
+  pacman -U "${_prefix}"*"${_pkgname}"*".pkg.tar"* \
+	    --noconfirm
   cd ".."
 }
 
