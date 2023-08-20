@@ -13,8 +13,12 @@ jobs:
         with:
           msystem: UCRT64
           update: true
-          install: git mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-python-pip 
+          install: git mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-python-pip mingw-w64-ucrt-x86_64-python-numpy
       - name: CI-Build
         run: |
           echo 'Running in MSYS2!'
           ./.github/workflows/ci-build.sh
+      # - name: Produce downloadable executable
+      #   uses: actions/upload-artifacts@v3
+      #   with:
+          

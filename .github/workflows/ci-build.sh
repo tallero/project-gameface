@@ -19,3 +19,4 @@ _package() {
 _prepare
 _build
 _package
+ls
