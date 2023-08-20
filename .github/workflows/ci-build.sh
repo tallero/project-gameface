@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-_sys="mingw64"
 _sys="ucrt64"
 _bin="/${_sys}/bin"
 
@@ -12,31 +11,15 @@ _setup_numpy() {
 	_pwd \
 	_url
   _pkg="python-numpy"
-  _github="https://raw.githubusercontent.com"
-  _commit="7ffcd8f7ffa0bf161da4ff40ee9444eb382fa8e0"
-  _url="${_github}/msys2/MINGW-packages/${_commit}/mingw-w64-${_pkg}"
-  _files=(
-    "PKGBUILD"
-    "0001-detect-mingw-environment.patch"
-    "0002-fix-finding-python2.patch"
-    "0003-gfortran-better-version-check.patch"
-    "0004-fix-testsuite.patch"
-    "0005-mincoming-stack-boundary-32bit-optimized-64bit.patch"
-    "0006-disable-visualcompaq-for-mingw.patch"
-    "0007-disable-64bit-experimental-warning.patch"
-    "0008-mingw-gcc-doesnt-support-visibility.patch"
-    "0010-mingw-inline-stuff.patch"
-    "0011-dont-die-if-no-fcompiler.patch"
-    "0012-clang-no-gcc-workaround.patch")
-  mkdir "${HOME}/${_pkg}"
-  _pwd="$(pwd)"
-  cd "${HOME}/${_pkg}"
-  for _file in "${_files[@]}"; do
-    wget "${_url}/${_file}"
-  done
+  _numpyver="1.22.0"
+  _ns="mingw-aur"
+  _commit="bc5d8d9510c590f2958daa3ae2753cac3709690e"
+  git clone "https://github.com/${_ns}/mingw-w64-${_pkg}-${_numpyver}"
+  cd "${_pkg}"
+  git checkout "${_commit}"
   makepkg-mingw --nocheck
-  pacman -U "mingw"*"${_pkg}"*.pkg.tar* --noconfirm
-  cd "${_pwd}"
+  pacman -U "mingw"*"${_pkg}"*".pkg.tar"* --noconfirm
+  cd ".."
 }
 
 _build() {
