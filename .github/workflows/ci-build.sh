@@ -78,6 +78,6 @@ _package() {
 _set_prefix
 _setup_numpy
 _setup_opencv
-_build
+# _build
 _package
 ls

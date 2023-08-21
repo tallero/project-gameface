@@ -13,7 +13,29 @@ jobs:
         with:
           msystem: UCRT64
           update: true
-          install: git patch mingw-w64-ucrt-x86_64-cmake mingw-w64-ucrt-x86_64-cython mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-gcc-fortran mingw-w64-ucrt-x86_64-openblas mingw-w64-ucrt-x86_64-opencv mingw-w64-ucrt-x86_64-python-opencv mingw-w64-ucrt-x86_64-python-pip mingw-w64-ucrt-x86_64-python-matplotlib mingw-w64-ucrt-x86_64-python-pytest mingw-w64-ucrt-x86_64-python-wheel mingw-w64-ucrt-x86_64-tk mingw-w64-ucrt-x86_64-cereal mingw-w64-ucrt-x86_64-python-flake8 mingw-w64-ucrt-x86_64-python-pylint mingw-w64-ucrt-x86_64-tiny-dnn mingw-w64-ucrt-x86_64-nlohmann-json mingw-w64-ucrt-x86_64-utf8cpp
+          install: >
+            git
+            patch
+            mingw-w64-ucrt-x86_64-cmake
+            mingw-w64-ucrt-x86_64-cython
+            mingw-w64-ucrt-x86_64-gcc
+            mingw-w64-ucrt-x86_64-flatbuffers
+            mingw-w64-ucrt-x86_64-gcc-fortran
+            mingw-w64-ucrt-x86_64-python-matplotlib
+            mingw-w64-ucrt-x86_64-openblas
+            mingw-w64-ucrt-x86_64-opencv
+            mingw-w64-ucrt-x86_64-python-opencv
+            mingw-w64-ucrt-x86_64-python-pip
+            mingw-w64-ucrt-x86_64-python-psutil
+            mingw-w64-ucrt-x86_64-python-pytest
+            mingw-w64-ucrt-x86_64-python-wheel
+            mingw-w64-ucrt-x86_64-tk
+            mingw-w64-ucrt-x86_64-cereal
+            mingw-w64-ucrt-x86_64-python-flake8
+            mingw-w64-ucrt-x86_64-python-pylint
+            mingw-w64-ucrt-x86_64-tiny-dnn
+            mingw-w64-ucrt-x86_64-nlohmann-json
+            mingw-w64-ucrt-x86_64-utf8cpp
       - name: CI-Build
         run: |
           echo 'Running in MSYS2!'
