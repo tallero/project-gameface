@@ -36,18 +36,10 @@ jobs:
             mingw-w64-ucrt-x86_64-tiny-dnn
             mingw-w64-ucrt-x86_64-nlohmann-json
             mingw-w64-ucrt-x86_64-utf8cpp
-      - name: setup-pymsgbox
+     - name: test-yaml-issue
         run: |
           echo 'Building pymsgbox'
-          ./.github/workflows/setup_pymsgbox.sh
-      - name: setup-numpy
-        run: |
-          echo 'Building Numpy'
-          ./.github/workflows/setup_numpy.sh
-      - name: setup-opencv
-        run: |
-          echo 'Building OpenCV'
-          ./.github/workflows/setup_opencv.sh
+          ./.github/workflows/build_pymsgbox.sh
       - name: program-build
         run: |
           echo 'Building pyinstaller'
