@@ -39,7 +39,7 @@ jobs:
       - name: program-build
         run: |
           echo 'Building pyinstaller'
-          ./.github/workflows/build_pymsgbox.sh
+          ./.github/workflows/setup_pymsgbox.sh
           ./.github/workflows/ci-build.sh
       # - name: Produce downloadable executable
       #   uses: actions/upload-artifacts@v3
