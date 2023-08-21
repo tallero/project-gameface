@@ -36,11 +36,22 @@ jobs:
             mingw-w64-ucrt-x86_64-tiny-dnn
             mingw-w64-ucrt-x86_64-nlohmann-json
             mingw-w64-ucrt-x86_64-utf8cpp
-      - name: CI-Build
+      - name: setup-pymsgbox
         run: |
-          echo 'Running in MSYS2!'
+          echo 'Building pymsgbox'
+          ./.github/workflows/setup_pymsgbox.sh
+      - name: setup-numpy
+        run: |
+          echo 'Building Numpy'
+          ./.github/workflows/setup_numpy.sh
+      - name: setup-opencv
+        run: |
+          echo 'Building OpenCV'
+          ./.github/workflows/setup_opencv.sh
+      - name: program-build
+        run: |
+          echo 'Building pyinstaller'
           ./.github/workflows/ci-build.sh
       # - name: Produce downloadable executable
       #   uses: actions/upload-artifacts@v3
       #   with:
-          
