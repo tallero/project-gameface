@@ -35,5 +35,6 @@ _setup_pymsgbox() {
   cd ".."
 }
 
+_setup_pymsgbox
 
 # vim:set sw=2 sts=-1 et:
