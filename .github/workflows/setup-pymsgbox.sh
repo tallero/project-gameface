@@ -22,9 +22,9 @@ _setup_pymsgbox() {
   pkgname="${_prefix}-${_pkgname}"
   _ns="mingw-aur"
   _commit="bec1d5423f32a7b6ac2e0e24c2608f85b4634ca6"
-  _url="https://github.com/${_ns}/${_pkgname}"
+  _url="https://github.com/${_ns}/${_prefix}-${_pkg}"
   git clone "${_url}"
-  cd "${pkgname}"
+  cd "${_prefix}-${_pkg}"
   git checkout "${_commit}"
   makepkg-mingw --nocheck
   pacman -Rdd "${MINGW_PACKAGE_PREFIX}-${_pkg}" \
