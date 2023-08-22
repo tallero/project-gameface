@@ -7,8 +7,8 @@ _package() {
   "${_bin}/pyinstaller" "build.spec"
 }
 
-# bash "setup_msgbox.sh"
-# bash "setup_numpy.sh"
-# bash "setup_opencv.sh"
+# bash "setup-msgbox.sh"
+# bash "setup-numpy.sh"
+# bash "setup-opencv.sh"
 _package
 ls
