@@ -22,7 +22,7 @@ _setup_pymsgbox() {
   pkgname="${_prefix}-${_pkgname}"
   _ns="mingw-aur"
   _commit="bec1d5423f32a7b6ac2e0e24c2608f85b4634ca6"
-  _url="https://github.com/${_ns}/${pkgname}"
+  _url="https://github.com/${_ns}/${_pkgname}"
   git clone "${_url}"
   cd "${pkgname}"
   git checkout "${_commit}"
