@@ -34,4 +34,6 @@ _setup_numpy() {
   cd ".."
 }
 
+_setup_numpy
+
 # vim:set sw=2 sts=-1 et:

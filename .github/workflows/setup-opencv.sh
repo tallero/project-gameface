@@ -35,4 +35,6 @@ _setup_opencv() {
   cd ".."
 }
 
+_setup_opencv
+
 # vim:set sw=2 sts=-1 et:
